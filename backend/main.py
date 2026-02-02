@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import Optional
 from datetime import date
 import sqlite3
@@ -57,7 +57,7 @@ init_db()
 class Employee(BaseModel):
     employee_id: str
     full_name: str
-    email: EmailStr
+    email: str
     department: str
 
 class Attendance(BaseModel):
