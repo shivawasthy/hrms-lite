@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+hrms.db
+
+# Environment files
+.env
+.env.local
+
+# Python artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Backup files
+*.backup
