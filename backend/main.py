@@ -10,7 +10,11 @@ app = FastAPI(title="HRMS Lite API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+   python
+   allow_origins=[
+       "https://hrms-lite-kappa.vercel.app/",  # Your actual URL
+       "http://localhost:3000"  # Keep for local dev
+   ]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
