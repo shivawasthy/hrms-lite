@@ -10,7 +10,11 @@ app = FastAPI(title="HRMS Lite API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://hrms-lite-kappa.vercel.app",
+        "https://*.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,7 +29,6 @@ def get_db():
     finally:
         conn.close()
 
-# Initialize database
 def init_db():
     with get_db() as conn:
         conn.execute('''
@@ -53,7 +56,6 @@ def init_db():
 
 init_db()
 
-# Models
 class Employee(BaseModel):
     employee_id: str
     full_name: str
@@ -65,7 +67,6 @@ class Attendance(BaseModel):
     date: str
     status: str
 
-# Employee Endpoints
 @app.get("/")
 def root():
     return {"message": "HRMS Lite API", "version": "1.0.0"}
@@ -116,7 +117,6 @@ def delete_employee(employee_id: str):
     
     return {"message": "Employee deleted successfully"}
 
-# Attendance Endpoints
 @app.get("/api/attendance")
 def get_attendance(employee_id: Optional[str] = None, date: Optional[str] = None):
     query = """
@@ -151,7 +151,6 @@ def get_employee_attendance(employee_id: str):
         if not cursor.fetchone():
             raise HTTPException(status_code=404, detail="Employee not found")
         
-        # Get attendance records
         cursor = conn.execute(
             """SELECT a.*, e.full_name 
                FROM attendance a
@@ -166,17 +165,14 @@ def get_employee_attendance(employee_id: str):
 
 @app.post("/api/attendance", status_code=201)
 def mark_attendance(attendance: Attendance):
-    # Validate employee exists
     with get_db() as conn:
         cursor = conn.execute("SELECT * FROM employees WHERE employee_id = ?", (attendance.employee_id,))
         if not cursor.fetchone():
             raise HTTPException(status_code=404, detail="Employee not found")
         
-        # Validate status
         if attendance.status not in ["Present", "Absent"]:
             raise HTTPException(status_code=400, detail="Status must be 'Present' or 'Absent'")
         
-        # Insert attendance
         try:
             conn.execute(
                 "INSERT INTO attendance (employee_id, date, status) VALUES (?, ?, ?)",
@@ -199,7 +195,6 @@ def delete_attendance(attendance_id: int):
     
     return {"message": "Attendance record deleted successfully"}
 
-# Statistics
 @app.get("/api/stats/employees")
 def get_employee_stats():
     with get_db() as conn:

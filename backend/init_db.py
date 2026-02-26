@@ -4,7 +4,6 @@ def init_database():
     conn = sqlite3.connect('hrms.db')
     cursor = conn.cursor()
     
-    # Create employees table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS employees (
         employee_id TEXT PRIMARY KEY,
@@ -15,7 +14,6 @@ def init_database():
     )
     ''')
     
-    # Create attendance table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS attendance (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,7 +26,6 @@ def init_database():
     )
     ''')
     
-    # Insert sample employees
     sample_employees = [
         ('EMP001', 'John Doe', 'john.doe@company.com', 'Engineering'),
         ('EMP002', 'Jane Smith', 'jane.smith@company.com', 'Marketing'),
@@ -40,7 +37,6 @@ def init_database():
     VALUES (?, ?, ?, ?)
     ''', sample_employees)
     
-    # Insert sample attendance
     sample_attendance = [
         ('EMP001', '2024-02-01', 'Present'),
         ('EMP001', '2024-02-02', 'Present'),

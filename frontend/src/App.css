@@ -1,5 +1,4 @@
 :root {
-  /* Modern, sophisticated color palette */
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-primary-light: #3b82f6;
@@ -57,7 +56,6 @@ body {
   flex-direction: column;
 }
 
-/* Header Styles */
 .header {
   background: var(--color-bg-primary);
   border-bottom: 1px solid var(--color-border);
@@ -148,7 +146,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* Main Content */
 .main-content {
   flex: 1;
   max-width: 1400px;
@@ -157,7 +154,6 @@ body {
   width: 100%;
 }
 
-/* Page Header */
 .page-header {
   margin-bottom: 2rem;
   animation: slideUp 0.4s ease;
@@ -180,7 +176,6 @@ body {
   font-weight: 500;
 }
 
-/* Cards */
 .card {
   background: var(--color-bg-primary);
   border-radius: var(--radius-lg);
@@ -211,7 +206,6 @@ body {
   padding: 2rem;
 }
 
-/* Buttons */
 .btn {
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
@@ -272,7 +266,6 @@ body {
   font-size: 0.875rem;
 }
 
-/* Forms */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -322,7 +315,6 @@ body {
   font-weight: 500;
 }
 
-/* Table */
 .table-container {
   overflow-x: auto;
   border-radius: var(--radius-lg);
@@ -369,7 +361,6 @@ body {
   border-bottom: none;
 }
 
-/* Employee ID Badge */
 .employee-id {
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -381,7 +372,6 @@ body {
   display: inline-block;
 }
 
-/* Department Badge */
 .department-badge {
   display: inline-flex;
   align-items: center;
@@ -393,7 +383,6 @@ body {
   color: var(--color-text-secondary);
 }
 
-/* Status Badge */
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -415,7 +404,6 @@ body {
   color: var(--color-danger);
 }
 
-/* Stats Cards */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -482,7 +470,6 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* Empty State */
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
@@ -508,7 +495,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Loading State */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -532,7 +518,6 @@ body {
   font-weight: 600;
 }
 
-/* Alert/Toast */
 .alert {
   padding: 1rem 1.5rem;
   border-radius: var(--radius-md);
@@ -562,7 +547,6 @@ body {
   border: 1px solid var(--color-warning);
 }
 
-/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -635,13 +619,11 @@ body {
   justify-content: flex-end;
 }
 
-/* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 0.5rem;
 }
 
-/* Filters */
 .filters {
   display: flex;
   gap: 1rem;
@@ -654,7 +636,6 @@ body {
   min-width: 200px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -692,7 +673,6 @@ body {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header-content {
     padding: 1rem;
@@ -737,7 +717,6 @@ body {
   }
 }
 
-/* Utility Classes */
 .text-center {
   text-align: center;
 }
